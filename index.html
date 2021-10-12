@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="An experimental CookieClicker as part of our BeCode training">
     <meta name="keywords" content="BeCode, cookieclicker, game, JavaScript, CSS, HTML">
-    <meta name="author" content="Sven Vander Mierde">
+    <meta name="author" content="Sven Vander Mierde and Reinout De Bleser">
     <title>BarCode</title>
-
+    <link rel="icon" type="image/png" sizes="32x32" href="IMG/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="IMG/logo.png">
     <!-- Bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -61,7 +62,7 @@
                     <div class="boostImage"><img src="IMG/seefbier.png" alt="seefbier"></div>
                     <div class="boostText">Add Seef beer to the menu.</div>
                     <div class="col price"><img src="IMG/coin.png" alt="coin"><span id="multiply1price">100</span></div>
-                    <div class="col cost"><img src="IMG/coin.png" alt="coin">X<span id="multiplier1"></span></div>
+                    <div class="col cost"><img src="IMG/coin.png" alt="coin">X2</div>
                 </button>
 
                 <!--additional multipliers
@@ -69,13 +70,13 @@
                     <div class="boostImage"><img src="IMG/bolleke.png" alt="bolleke"></div>
                     <div class="boostText">Add Bolleke beer to the menu.</div>
                     <div class="col price"><img src="IMG/coin.png" alt="coin"><span id="multiply2price">100</span></div>
-                    <div class="col cost"><img src="IMG/coin.png" alt="coin">X<span id="multiplier2"></span></div>
+                    <div class="col cost"><img src="IMG/coin.png" alt="coin">X3</div>
                 </button>
                 <button class="multiplier" id="multiply3">
                     <div class="boostImage"><img src="IMG/triple.png" alt="triple"></div>
                     <div class="boostText">Add Triple d'Anvers beer to the menu.</div>
                     <div class="col price"><img src="IMG/coin.png" alt="coin"><span id="multiply3price">100</span></div>
-                    <div class="col cost"><img src="IMG/coin.png" alt="coin">X<span id="multiplier3"></span></div>
+                    <div class="col cost"><img src="IMG/coin.png" alt="coin">X4</div>
                 </button>
                 -->
             </div>
@@ -100,7 +101,7 @@
                 <button class="boost" id="boost1">
                     <div class="boostImage"><img src="IMG/frietjes.jpg" alt="frietjes"></div>
                     <div class="boostText">Sell some frietjes. Boost your score times 2</div>
-                    <div class="price"><img src="IMG/coin.png" alt="coin"><span id="boost1price">1000</span></div>
+                    <div class="price"><img src="IMG/coin.png" alt="coin"><span id="priceBoost1">1000</span></div>
                     <div class="col cost"><img src="IMG/boost.ico" alt="boost"><span> 30 sec</span></div>
                 </button>
                 <!--additional boosts

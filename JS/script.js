@@ -1,49 +1,82 @@
-/*DECLARE AND DISABLE BUTTONS*/
-let buttons = document.getElementsByTagName("button");
-console.log(buttons);
+window.localStorage
+/*DECLARE ALL VARIABLES*/
 
-for (i=0; i<buttons.length;i++) {
-    var button = buttons[i];
-    if(button.id !=="reset"){
-        button.setAttribute("disabled", true);
-    }
+let target = document.getElementById("score");
+let income = document.getElementById('income');
+let multiPrice = document.getElementById("multiply1price");
+
+let pint=parseInt(localStorage.getItem("pint"));
+let interval1;
+let interval2;
+let score = parseInt(localStorage.getItem("score"));
+let price1 = parseInt(localStorage.getItem("price1"));
+console.log(price1);
+console.log(typeof(price1));
+let priceAuto1 = parseInt(localStorage.getItem("priceAuto1"));
+let priceBoost1 = parseInt(localStorage.getItem("priceBoost1"));
+let multiCounter = parseInt(localStorage.getItem("multiCounter")) ;
+let autoCounter = parseInt(localStorage.getItem("autoCounter"));
+let boostCounter = parseInt(localStorage.getItem("boostCounter"));
+
+if (typeof(score)!="number") {
+    score = 0;
+}
+if (typeof(pint)!="number") {
+    pint = 100;
+}
+if (typeof(price1)!="number") {
+    price1 = 100;
+}
+if (typeof(priceAuto1)!="number") {
+    priceAuto1 = 25;
+}
+if (typeof(priceBoost1)!="number") {
+    priceBoost1 = 1000;
+}
+if (typeof(multiCounter)!="number") {
+    multiCounter = 0;
+}
+if (typeof(autoCounter)!="number") {
+    autoCounter = 0;
+}
+if (typeof(boostCounter)!="number") {
+    boostCounter = 0;
 }
 
+checkValues();
+autoClicker();
 
-//defining variables on top
-//Defining first value of the clicker
-let pint = 100;
-let boost = 1
-pint *= boost;
-document.getElementById("income").innerText = pint;
-document.getElementById("multiplier1").innerText = '2';
+
 //defining the score
-let target = document.getElementById("score");
-let interval;
-let score = 0;
-let multiCounter = 0;
-let autoCounter = 0;
-let boostCounter = 0;
-let price1 = 100;
-let priceAuto1 = 25;
-let boost1Price = 1000;
+let boost = 1;
+pint *= boost;
 
+
+target.innerText = score;
+income.innerText = pint;
+multiPrice.innerText = price1;
+
+
+document.getElementById('multiCounter').innerText = multiCounter;
+document.getElementById('autoclick1price').innerText = priceAuto1;
+document.getElementById('autoCounter').innerText = autoCounter;
+document.getElementById('priceBoost1').innerText = priceBoost1;
+document.getElementById('boostCounter').innerText = boostCounter;
 
 checkValues();
 //iClick: werkt!
 //the event listener for clicking the button
 document.getElementById("click").addEventListener("click", function() {
     //the addition of value to the
-
     score += pint;
     target.innerText = score;
     checkValues();
+    storeSet();
 });
 
 //iMultiply: defining the multiplier function
 document.getElementById("multiply1").addEventListener("click", function() {
     //adding requirement multiplier
-    console.log("a")
 
     if (score>=price1) {
         //reducing score value with price.
@@ -58,9 +91,10 @@ document.getElementById("multiply1").addEventListener("click", function() {
         price1 *= multiCounter+1;
         //visualising
         document.getElementById("multiply1price").innerText = price1;
-        document.getElementById("income").innerText = pint;
+        income.innerText = pint;
         document.getElementById('multiCounter').innerText = multiCounter;
         //checking values for button disables
+        storeSet();
         checkValues();
     }
 
@@ -71,14 +105,16 @@ document.getElementById("autoclick1").addEventListener("click",function() {
     console.log("a")
     if (score >= priceAuto1) {
         autoCounter++;
+        storeSet();
         document.getElementById('autoCounter').innerText = autoCounter;
         score -= priceAuto1;
         priceAuto1 *= autoCounter + 1;
         document.getElementById('autoclick1price').innerText = priceAuto1;
         target.innerText = score;
-        setInterval(function iAutoClick() {
+        interval2 = setInterval(function iAutoClick() {
             score += pint;
             target.innerText = score;
+            storeSet();
             checkValues();
         }, 2000)
     }
@@ -90,37 +126,39 @@ document.getElementById("autoclick1").addEventListener("click",function() {
 // Booster:
 
 document.getElementById("boost1").addEventListener("click", function (){
-    if (score >= boost1Price){
+    if (score >= priceBoost1){
         boostCounter++;
         document.getElementById('boostCounter').innerText = boostCounter;
-        score-=boost1Price;
+        score-=priceBoost1;
         target.innerText = score;
-        boost1Price *= boostCounter+1;
-        document.getElementById('boost1price').innerText = boost1Price;
+        priceBoost1 *= boostCounter+1;
+        document.getElementById('priceBoost1').innerText = priceBoost1;
         let timer=0;
         document.getElementById("boost1").setAttribute("disabled", "");
         console.log("a");
         boost = 2;
         pint *= boost;
-        interval = setInterval(function () {
+        interval1 = setInterval(function () {
             timer++;
             document.getElementById('timer').innerText = 30 - timer + ' sec';
-            document.getElementById("timer").innerText = 30 - timer + " s";
-            document.getElementById("income").style.color = "darkred";
-            document.getElementById("income").innerText = pint;
-            console.log(timer);
+            income.style.color = "darkred";
+            income.innerText = pint;
+            storeSet();
             if (timer === 30) {
                 boost = 1;
                 pint *= boost / 2;
-                document.getElementById("boost1").removeAttribute("disabled", "");
-                document.getElementById("income").style.color = "#333333";
-                document.getElementById("income").innerText = pint;
+                document.getElementById("boost1").removeAttribute("disabled");
+                income.style.color = "#333333";
+                income.innerText = pint;
+                document.getElementById('timer').innerText = '0 sec';
+                storeSet();
                 checkValues();
-                clearInterval(interval)
+                clearInterval(interval1)
             }
         }, 1000)
     }
     //checking values for button disables
+    storeSet();
     checkValues();
 })
 
@@ -138,9 +176,56 @@ function checkValues() {
     } else {
         document.getElementById('autoclick1').setAttribute("disabled", true);
     }
-    if (score>=boost1Price) {
+    if (score>=priceBoost1) {
         document.getElementById('boost1').removeAttribute("disabled");
     } else {
         document.getElementById('boost1').setAttribute("disabled", true);
     }
 }
+
+function storeSet() {
+    localStorage.setItem("score", score);
+    localStorage.setItem("pint", pint);
+    localStorage.setItem("price1", price1);
+    localStorage.setItem("priceAuto1", priceAuto1);
+    localStorage.setItem("priceBoost1", priceBoost1);
+    localStorage.setItem("multiCounter", multiCounter);
+    localStorage.setItem("autoCounter", autoCounter);
+    localStorage.setItem("boostCounter", boostCounter);
+}
+
+function autoClicker() {
+    if (autoCounter>0){
+        interval2 = setInterval(function iAutoClick() {
+            score += pint*autoCounter;
+            target.innerText = score;
+            storeSet();
+            checkValues();
+        }, 5000)
+    }
+}
+
+/*RESET*/
+
+document.getElementById('reset').addEventListener('click',function(){
+    pint=100;
+    score = 0;
+    price1 = 100;
+    priceAuto1 = 25;
+    priceBoost1 = 1000;
+    multiCounter = 0;
+    autoCounter = 0;
+    boostCounter = 0;
+    clearInterval(interval2);
+    storeSet();
+    target.innerText = score;
+    income.innerText = pint;
+    multiPrice.innerText = price1;
+
+    document.getElementById('multiCounter').innerText = multiCounter;
+    document.getElementById('autoclick1price').innerText = priceAuto1;
+    document.getElementById('autoCounter').innerText = autoCounter;
+    document.getElementById('priceBoost1').innerText = priceBoost1;
+    document.getElementById('boostCounter').innerText = boostCounter;
+    checkValues();
+})
