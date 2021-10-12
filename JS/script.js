@@ -1,22 +1,21 @@
 window.localStorage
+
 /*DECLARE ALL VARIABLES*/
 
 let target = document.getElementById("score");
 let income = document.getElementById('income');
 let multiPrice = document.getElementById("multiply1price");
 
-let pint=parseInt(localStorage.getItem("pint"));
+pint=parseInt(localStorage.getItem("pint"));
 let interval1;
 let interval2;
-let score = parseInt(localStorage.getItem("score"));
-let price1 = parseInt(localStorage.getItem("price1"));
-console.log(price1);
-console.log(typeof(price1));
-let priceAuto1 = parseInt(localStorage.getItem("priceAuto1"));
-let priceBoost1 = parseInt(localStorage.getItem("priceBoost1"));
-let multiCounter = parseInt(localStorage.getItem("multiCounter")) ;
-let autoCounter = parseInt(localStorage.getItem("autoCounter"));
-let boostCounter = parseInt(localStorage.getItem("boostCounter"));
+score = parseInt(localStorage.getItem("score"));
+price1 = parseInt(localStorage.getItem("price1"));
+priceAuto1 = parseInt(localStorage.getItem("priceAuto1"));
+priceBoost1 = parseInt(localStorage.getItem("priceBoost1"));
+multiCounter = parseInt(localStorage.getItem("multiCounter")) ;
+autoCounter = parseInt(localStorage.getItem("autoCounter"));
+boostCounter = parseInt(localStorage.getItem("boostCounter"));
 
 if (typeof(score)!="number") {
     score = 0;
