@@ -1,1 +1,1 @@
-# BarCode-Clicker
+# CookieClicker

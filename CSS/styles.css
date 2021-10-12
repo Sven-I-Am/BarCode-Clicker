@@ -1,0 +1,156 @@
+/*-----*/
+/*SETUP*/
+/*-----*/
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: eraserregular, sans-serif;
+}
+
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(../IMG/background.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+    font-family: sans-serif;
+    font-size: 22px;
+}
+
+.row {
+    margin: 0;
+}
+
+section {
+    margin: 10vh 2%;
+    padding: 0;
+}
+
+/*--------*/
+/*REUSABLE*/
+/*--------*/
+
+#clicker,
+#overview,
+#boosts {
+    height: 80vh;
+    background-color: #EFEFEFAA;
+    border: 2px solid red;
+    margin: 10px 5px;
+    overflow: auto;
+}
+
+#clicker {
+    text-align: center;
+}
+
+#button {
+    padding: 10px;
+}
+
+#click {
+    padding: 0;
+    margin: 3px;
+    border-radius: 50%;
+    box-shadow: 3px 3px 2px #666666aa;
+    width: fit-content;
+}
+
+#click:hover {
+    box-shadow: 2px 2px 1px #555555aa;
+}
+
+#click:active {
+    box-shadow: 2px 2px 1px #ffc925aa;
+}
+
+#timer {
+    width: 80%;
+    height: 100px;
+    margin: 20px auto 0 auto;
+    color: mintcream;
+    background-color: darkred;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 64px;
+    overflow: hidden;
+}
+
+.output {
+    border: 1px solid #333;
+    margin: 10px;
+    padding: 3px;
+}
+
+
+
+/*------*/
+/*BOOSTS*/
+/*------*/
+.multiplier,
+.autoclick,
+.boost {
+    overflow: hidden;
+    margin: 5px 10px;
+    box-shadow: 1px 1px 1px #555;
+    font-size: 14px;
+}
+
+.multiplier:hover,
+.autoclick:hover,
+.boost:hover {
+    box-shadow: 2px 2px 2px #333;
+}
+
+.multiplier:active,
+.autoclick:active,
+.boost:active {
+    box-shadow: 1px 1px 1px #d2a81f;
+}
+
+.multiplier {
+    border: 2px solid #c05715;
+    background-color: #c05715;
+}
+
+.autoclick {
+    border: 2px solid #279484;
+    background-color: #279484;
+}
+
+.boost {
+    border: 2px solid #d2a81f;
+    background-color: #d2a81f;
+}
+
+.boostImage {
+    float: left;
+    width: fit-content;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.boostImage img {
+    height: 90px;
+    width: auto;
+}
+
+.boostText {
+    position: relative;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.price {
+    float: left;
+    margin-left: 30px;
+}
+
+.cost {
+    float: right;
+    margin-right: 30px;
+
+}
