@@ -81,32 +81,19 @@ document.getElementById("autoclick1").addEventListener("click",function() {
 
 // Booster:
 
-<<<<<<< HEAD
 document.getElementById("boost1").addEventListener("click", function (){
     if (score >= boost1Price){
         score-=boost1Price;
         target.innerText = score;
-
-    let timer=0;
-    document.getElementById("boost1").setAttribute("disabled", "");
-=======
-document.getElementById("boost1").addEventListener("click", function () {
-    if (score >= boost1price) {
-        score -= boost1price;
-        target.innerText = score;
-        let timer = 0;
+        let timer=0;
         document.getElementById("boost1").setAttribute("disabled", "");
->>>>>>> 826b229a1fc36294b6ee8ffe208db0a1fa118cbd
         console.log("a");
         boost = 2;
         pint *= boost;
         interval = setInterval(function () {
             timer++;
-<<<<<<< HEAD
             document.getElementById('timer').innerText = 30 - timer + ' sec';
-=======
             document.getElementById("timer").innerText = 30 - timer + " s";
->>>>>>> 826b229a1fc36294b6ee8ffe208db0a1fa118cbd
             console.log(timer);
             if (timer === 30) {
                 boost = 1;
@@ -116,11 +103,12 @@ document.getElementById("boost1").addEventListener("click", function () {
             }
         }, 1000)
     }
-<<<<<<< HEAD
     //checking values for button disables
     checkValues();
 })
 
+
+ /*REUSABLE FUNCTIONS*/
 
 function checkValues() {
     if (score>=price1) {
@@ -139,6 +127,3 @@ function checkValues() {
         document.getElementById('boost1').setAttribute("disabled", true);
     }
 }
-=======
-})
->>>>>>> 826b229a1fc36294b6ee8ffe208db0a1fa118cbd
