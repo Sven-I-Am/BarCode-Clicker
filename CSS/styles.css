@@ -5,7 +5,7 @@
 * {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
     font-family: eraserregular, sans-serif;
 }
 
@@ -20,13 +20,14 @@ body {
 }
 
 .row {
-    margin: 0;
+    margin: 10px 0 0 0;
 }
 
 section {
     margin: 10vh 2%;
     padding: 0;
 }
+
 
 /*--------*/
 /*REUSABLE*/
