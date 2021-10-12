@@ -53,10 +53,11 @@ section {
 
 #click {
     padding: 0;
-    margin: 3px;
+    margin: 3px auto;
     border-radius: 50%;
     box-shadow: 3px 3px 2px #666666aa;
-    width: fit-content;
+    height: 200px;
+    width: auto;
 }
 
 #click:hover {
