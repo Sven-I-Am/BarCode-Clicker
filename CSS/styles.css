@@ -156,3 +156,8 @@ section {
     margin-right: 30px;
 
 }
+
+#multiCounter {
+    font-size: 32px;
+    float: right;
+}

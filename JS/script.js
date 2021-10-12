@@ -7,13 +7,12 @@ for (i=0; i<buttons.length;i++) {
     if(button.id !=="reset"){
         button.setAttribute("disabled", true);
     }
-
 }
 
 
 //defining variables on top
 //Defining first value of the clicker
-let pint = 1;
+let pint = 100;
 let boost = 1
 pint *= boost;
 document.getElementById("income").innerText = pint;
@@ -60,6 +59,7 @@ document.getElementById("multiply1").addEventListener("click", function() {
         //visualising
         document.getElementById("multiply1price").innerText = price1;
         document.getElementById("income").innerText = pint;
+        document.getElementById('multiCounter').innerText = multiCounter;
         //checking values for button disables
         checkValues();
     }
@@ -71,6 +71,7 @@ document.getElementById("autoclick1").addEventListener("click",function() {
     console.log("a")
     if (score >= priceAuto1) {
         autoCounter++;
+        document.getElementById('autoCounter').innerText = autoCounter;
         score -= priceAuto1;
         priceAuto1 *= autoCounter + 1;
         document.getElementById('autoclick1price').innerText = priceAuto1;
@@ -91,6 +92,7 @@ document.getElementById("autoclick1").addEventListener("click",function() {
 document.getElementById("boost1").addEventListener("click", function (){
     if (score >= boost1Price){
         boostCounter++;
+        document.getElementById('boostCounter').innerText = boostCounter;
         score-=boost1Price;
         target.innerText = score;
         boost1Price *= boostCounter+1;
