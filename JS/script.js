@@ -22,7 +22,7 @@ if (typeof(score)!="number") {
     score = 0;
 }
 if (typeof(pint)!="number") {
-    pint = 100;
+    pint = 1;
 }
 if (typeof(price1)!="number") {
     price1 = 100;
@@ -208,7 +208,7 @@ function autoClicker() {
 /*RESET*/
 
 document.getElementById('reset').addEventListener('click',function(){
-    pint=100;
+    pint = 1;
     score = 0;
     price1 = 100;
     priceAuto1 = 25;
